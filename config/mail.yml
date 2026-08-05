@@ -1,0 +1,52 @@
+# Shared mail configuration — zimbraHealth, zimbraLdap, pmgHealth, postalHealth.
+zimbra:
+  # Zimbra web UI URL used for the SSL check
+  z-url: ""
+  # mailq alarm threshold
+  queue-limit: 50
+  # full checks run at most once per this many hours (live service check always runs)
+  cache-interval: 12
+  restart:
+    enabled: false
+    restart-limit: 3
+    # minutes between restart attempts of the same service
+    restart-interval: 10
+  login-test:
+    enabled: false
+    account: ""
+  email-send-test:
+    enabled: false
+    from-email: ""
+    to-email: ""
+    smtp-host: ""
+    smtp-port: 587
+    check-received: false
+    imap-server: ""
+    imap-port: 993
+    imap-use-tls: true
+    to-email-username: ""
+    to-email-password: ""
+    check-retries: 3
+    check-retry-interval: 30
+  webhook-tail:
+    enabled: false
+    logfile: ""
+    filter: ""
+pmg:
+  queue-limit: 50
+  email-monitoring:
+    enabled: false
+    threshold-factor:
+      daily: 2.0
+      hourly: 3.0
+  blacklist-check:
+    enabled: false
+    # external IP to check; auto-detected when empty
+    ip: ""
+    ignorelist: []
+postal:
+  check-message: true
+  # queued message alarm threshold
+  message-threshold: 100
+  # held message alarm threshold
+  held-threshold: 5
