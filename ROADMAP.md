@@ -11,9 +11,11 @@ Proxmox Mail Gateway health plugin. Feature parity with monokit1 `pmgHealth/`.
 
 ## Features
 
+- [ ] PMG installation auto-detection, so deleting the config disables the plugin
 - [ ] PMG systemd services check (per-service alarms)
 - [ ] PostgreSQL status check
 - [ ] Queued messages check (`mailq` count vs queue-limit)
+  - [ ] Separate `mailq_run` alarm when the command itself fails
 - [ ] Mail-volume anomaly detection (email-monitoring)
   - [ ] 24h sent+received vs previous period × daily threshold factor (alarm + Redmine issue)
   - [ ] Hourly stats vs hourly threshold factor
@@ -24,4 +26,7 @@ Proxmox Mail Gateway health plugin. Feature parity with monokit1 `pmgHealth/`.
   - [ ] Ignore list
   - [ ] Result caching in DB with check throttling
   - [ ] blacklist / blacklist-not-ignored alarms
+  - [ ] External-IP validation before use, and a distinct alarm when detection fails
 - [ ] PMG version reporting (`pmgversion`; monokit2: osHealth vlib `proxmox.go`)
+- [ ] Health summary box output, compact and full (depends on the lib renderer)
+- [ ] Health data POST to the server API (depends on base client/server API)
